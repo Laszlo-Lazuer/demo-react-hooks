@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
+// Consumers of state
+import TodoForm from './components/todoForm';
+import Todo from './components/toDo';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -19,6 +21,9 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
+      <h1>React hooks CRUD ToDo Example</h1>
+      <h3>Followed Tutorial from Scotch.io + structure cleanup</h3>
+      <p><a href="https://scotch.io/tutorials/build-a-react-to-do-app-with-react-hooks-no-class-components">Build a React To-Do App with React Hooks (No Class Components)</a></p>
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -30,28 +35,6 @@ function App() {
       </div>
     </div>
   );
-}
-
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </form>
-  )
 }
 
 export default App;
