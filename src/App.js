@@ -4,12 +4,17 @@ import './App.css';
 const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
 
 function App() {
-
   const [todos, setTodos] = useState([
     { text: "Learn about React" },
     { text: "Meet friend for lunch" },
     { text: "Build really cool todo app" }
   ]);
+
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  }
+  
 
   return (
     <div className="App">
@@ -21,9 +26,32 @@ function App() {
             todo={todo}
           />
         ))}
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
+}
+
+function TodoForm({ addTodo }) {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  )
 }
 
 export default App;
