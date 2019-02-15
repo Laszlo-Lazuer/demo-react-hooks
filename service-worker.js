@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Laszlo-Lazuer/demo-react-hooks/precache-manifest.fa2f2be6a6e7efa706b8ee60651113df.js"
+  "/demo-react-hooks/precache-manifest.f6e3517a32f904d2692acdcefd723b81.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Laszlo-Lazuer/demo-react-hooks/index.html", {
+workbox.routing.registerNavigationRoute("/demo-react-hooks/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
